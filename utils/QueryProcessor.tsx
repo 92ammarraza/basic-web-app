@@ -6,6 +6,7 @@ export default function QueryProcessor(query: string): string {
       "writer in the English language and the world's pre-eminent dramatist."
     );
   }
+  
   if (query.toLowerCase().includes("andrew id")) {
     return ("mraza2");
   }
@@ -19,6 +20,13 @@ export default function QueryProcessor(query: string): string {
     const x: number = parseInt(addMatch[1]);
     const y: number = parseInt(addMatch[2]);
     return (x+y).toString();
+  }
+
+  const mulMatch = query.match(/What is (\d+) multiplied by (\d+)/);
+  if (mulMatch) {
+    const x: number = parseInt(mulMatch[1]);
+    const y: number = parseInt(mulMatch[2]);
+    return (x * y).toString();
   }
 
   return "";
